@@ -11,23 +11,32 @@ class Solution
 {
     public:
     //Function to delete middle element of a stack.
-    void rec(stack<int>&s,int ind,int mid){
-        if(ind==mid){//Base condition
-            s.pop(); //pop middle one
-            return;
-        }
-        int temp=s.top();
-        s.pop();
-        rec(s,ind+1,mid);//call the recursion
-        s.push(temp);//push all the elements again to the stack
-    }
     void deleteMid(stack<int>&s, int sizeOfStack)
     {
         // code here.. 
-        int mid=sizeOfStack/2;//top n/2 elements are to be to pushed again
-        rec(s,0,mid);
+    
+    stack<int>s2;
+    int mid=sizeOfStack/2 ;
+    for(int i=0;i<=mid;i++)
+    {
+        if(i!=mid)
+        {
+            int ans=s.top();
+            s.pop();
+            s2.push(ans);
+        }
+        else 
+        s.pop();
+    }
+   while (!s2.empty()) {
+            int temp = s2.top();
+            s2.pop();
+            s.push(temp);
+        }
+    
     }
 };
+
 
 //{ Driver Code Starts.
 int main() {
@@ -60,4 +69,4 @@ int main() {
     return 0;
 }
 
-// } Driver Code Ends
+// } Driver Code Ends};
