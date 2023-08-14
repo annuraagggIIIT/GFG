@@ -101,6 +101,7 @@ struct Node
     int data;
     Node* left, * right;
 }; */
+
 class Solution {
 public:
     int solve(Node* node) {
