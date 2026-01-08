@@ -17,12 +17,9 @@ class Solution {
   public:
     int sumBT(Node* root) {
         // code here
-        if (root == NULL)
-            return 0;   // key change
-
-        int lefth = sumBT(root->left);
-        int righth = sumBT(root->right);
-
-        return lefth + righth + (root->data);
+        if(root==NULL) return 0;
+        int x = sumBT(root->left);
+        int y = sumBT(root->right);
+        return root->data + x+y;
     }
 };
